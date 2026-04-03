@@ -1,0 +1,47 @@
+.chatShell :global(.str-chat),
+.chatShell :global(.str-chat__container),
+.chatShell :global(.str-chat__main-panel),
+.chatShell :global(.str-chat-channel),
+.chatShell :global(.str-chat-channel-list),
+.chatShell :global(.str-chat__list),
+.chatShell :global(.str-chat__message-list-scroll),
+.chatShell :global(.str-chat__message-list-main-panel) {
+	background: var(--card) !important;
+	color: var(--foreground) !important;
+}
+
+.chatShell :global(.str-chat__message-simple__text-inner),
+.chatShell :global(.str-chat__message-bubble),
+.chatShell :global(.str-chat__message-text-inner) {
+	background: var(--muted) !important;
+	color: var(--foreground) !important;
+}
+
+.chatShell :global(.str-chat__message--me .str-chat__message-simple__text-inner),
+.chatShell :global(.str-chat__message--me .str-chat__message-bubble),
+.chatShell :global(.str-chat__message--me .str-chat__message-text-inner) {
+	background: color-mix(in oklab, var(--primary) 18%, var(--card)) !important;
+	color: var(--foreground) !important;
+}
+
+.chatShell :global(.str-chat__date-separator-date),
+.chatShell :global(.str-chat__message-data),
+.chatShell :global(.str-chat__message-simple-name) {
+	color: var(--muted-foreground) !important;
+}
+
+.chatShell :global(.str-chat__message-input),
+.chatShell :global(.str-chat__input-flat),
+.chatShell :global(.str-chat__input-flat-wrapper) {
+	background: transparent !important;
+}
+
+.chatShell :global(.str-chat__empty-channel),
+.chatShell :global(.str-chat__empty-channel-text),
+.chatShell :global(.str-chat__empty-channel svg),
+.chatShell :global(.str-chat__message-list-empty),
+.chatShell :global(.str-chat__virtual-message__wrapper) {
+	background: var(--card) !important;
+	color: var(--muted-foreground) !important;
+	fill: var(--muted-foreground) !important;
+}
