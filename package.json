@@ -8,6 +8,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test:validation": "vitest run tests/validation",
+    "test:validation:watch": "vitest tests/validation",
+    "test:functional": "playwright test",
+    "test:functional:ui": "playwright test --ui",
+    "test:performance": "node ./scripts/perf-smoke.mjs",
+    "test:all": "npm run test:validation && npm run test:performance",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "dev:webhook": "ngrok http --url=condor-infinite-bobcat.ngrok-free.app 3000",
@@ -107,18 +113,21 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/nodemailer": "^7.0.3",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-highlight-words": "^0.20.0",
+    "autocannon": "^8.0.0",
     "drizzle-kit": "^0.31.1",
     "eslint": "^9",
     "eslint-config-next": "15.3.8",
     "tailwindcss": "^4",
     "tsx": "^4.19.4",
     "tw-animate-css": "^1.3.5",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.2"
   }
 }

@@ -1,5 +1,4 @@
 "use client";
-import {z} from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 
@@ -23,12 +22,7 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-
-const formSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(6, "Password is required"),
-});
+import { signInSchema, type SignInSchema } from "@/modules/auth/schemas";
 
 
 export const SignInView = () => {
@@ -36,15 +30,15 @@ export const SignInView = () => {
   const [pending, setPending] = useState(false);
   const [error,setError] = useState<string | null>(null);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<SignInSchema>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
 
-  const onSubmit =  (data: z.infer<typeof formSchema>) => {
+  const onSubmit =  (data: SignInSchema) => {
     setError(null);
     setPending(true);
     authClient.signIn.email(

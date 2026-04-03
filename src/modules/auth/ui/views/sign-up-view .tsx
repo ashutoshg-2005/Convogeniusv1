@@ -1,5 +1,4 @@
 "use client";
-import {z} from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 
@@ -25,18 +24,7 @@ import {FaGoogle, FaGithub} from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-
-
-const formSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email(),
-  password: z.string().min(6, "Password is required"),
-  confirmPassword: z.string().min(6, "Confirm Password is required"),
-}).refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path:["confirmPassword"],
-});
+import { signUpSchema, type SignUpSchema } from "@/modules/auth/schemas";
 
 
 export const SignUpView = () => {
@@ -45,8 +33,8 @@ export const SignUpView = () => {
   const [pending, setPending] = useState(false);
   const [error,setError] = useState<string | null>(null);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<SignUpSchema>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -55,7 +43,7 @@ export const SignUpView = () => {
     },
   });
 
-  const onSubmit =  (data: z.infer<typeof formSchema>) => {
+  const onSubmit =  (data: SignUpSchema) => {
     setError(null);
     setPending(true);
     authClient.signUp.email(
@@ -175,7 +163,7 @@ export const SignUpView = () => {
                   </Alert>
                 )}
                 <Button className="w-full" type="submit" disabled={pending}>
-                  Sign In
+                  Sign Up
                 </Button>
                 <div className="after:border-border dark:after:border-gray-600 relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                   <span className="bg-card dark:bg-gray-800 text-muted-foreground dark:text-gray-400 relative z-10 px-2">
@@ -195,7 +183,7 @@ export const SignUpView = () => {
                   </Button>
                 </div>
                 <div className="text-center text-sm text-muted-foreground dark:text-gray-400">
-                  Don&apos;t have an account? {" "}
+                  Already have an account? {" "}
                   <Link href={"/sign-in"} className="text-primary dark:text-blue-400 underline underline-offset-4">
                    Sign-In
                   </Link>
