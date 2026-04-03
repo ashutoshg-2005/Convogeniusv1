@@ -4,12 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:logged": "powershell -ExecutionPolicy Bypass -File ./scripts/dev-logged.ps1",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "dev:webhook": "ngrok http --url=condor-infinite-bobcat.ngrok-free.app 3000"
+    "dev:webhook": "ngrok http --url=condor-infinite-bobcat.ngrok-free.app 3000",
+    "dev:webhook:logged": "powershell -ExecutionPolicy Bypass -File ./scripts/dev-webhook-logged.ps1",
+    "inngest:dev": "npx inngest-cli@latest dev -u http://localhost:3000/api/inngest",
+    "inngest:dev:logged": "powershell -ExecutionPolicy Bypass -File ./scripts/inngest-dev-logged.ps1",
+    "observability:up": "docker compose -f compose.observability.yml up -d",
+    "observability:down": "docker compose -f compose.observability.yml down",
+    "observability:logs": "docker compose -f compose.observability.yml logs -f"
   },
   "dependencies": {
     "@dicebear/collection": "^9.2.3",

@@ -1,0 +1,18 @@
+local.file_match "convo_logs" {
+  path_targets = [
+    { __path__ = "/var/log/convo/app.log", job = "nextjs" },
+    { __path__ = "/var/log/convo/ngrok.log", job = "ngrok" },
+    { __path__ = "/var/log/convo/inngest.log", job = "inngest" },
+  ]
+}
+
+loki.source.file "convo_logs" {
+  targets    = local.file_match.convo_logs.targets
+  forward_to = [loki.write.local.receiver]
+}
+
+loki.write "local" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}

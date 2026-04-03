@@ -1,0 +1,36 @@
+services:
+  loki:
+    image: grafana/loki:latest
+    command: -config.file=/etc/loki/config.yaml
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./observability/loki-config.yaml:/etc/loki/config.yaml:ro
+      - loki-data:/loki
+
+  alloy:
+    image: grafana/alloy:latest
+    command: run /etc/alloy/config.alloy
+    depends_on:
+      - loki
+    volumes:
+      - ./observability/alloy.config.alloy:/etc/alloy/config.alloy:ro
+      - ./observability/logs:/var/log/convo:ro
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    depends_on:
+      - loki
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports:
+      - "3001:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+
+volumes:
+  grafana-data:
+  loki-data:
