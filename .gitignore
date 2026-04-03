@@ -45,3 +45,5 @@ next-env.d.ts
 # local observability runtime files
 observability/logs/*
 !observability/logs/.gitkeep
+
+.agent/*

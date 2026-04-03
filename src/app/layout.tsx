@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/client";
 import { ThemeProvider } from "next-themes";
 
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import {NuqsAdapter} from "nuqs/adapters/next";
-const inter = Inter({
+
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
@@ -24,9 +25,9 @@ export default function RootLayout({
   return ( 
     <NuqsAdapter>
       <TRPCReactProvider>
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning className="!scroll-smooth">
           <body
-            className={`${inter.className} antialiased`}
+            className={`${jakarta.className} antialiased`}
           >
             <ThemeProvider
               attribute="class"
