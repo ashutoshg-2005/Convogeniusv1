@@ -32,7 +32,7 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="rounded-lg border bg-background overflow-hidden">
+    <div className="rounded-lg border border-white/[0.05] bg-white/[0.02] backdrop-blur-xl overflow-hidden shadow-lg">
       <Table>
         <TableBody>
           {table.getRowModel().rows?.length ? (
@@ -45,7 +45,7 @@ export function DataTable<TData, TValue>({
                 }}
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
-                className="cursor-pointer "
+                className="cursor-pointer hover:bg-white/[0.04] transition-colors"
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell className="text-sm p-4"
@@ -57,7 +57,7 @@ export function DataTable<TData, TValue>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-19 text-center text-muted-foreground">
+              <TableCell colSpan={columns.length} className="h-19 text-center text-slate-400">
                 No results.
               </TableCell>
             </TableRow>

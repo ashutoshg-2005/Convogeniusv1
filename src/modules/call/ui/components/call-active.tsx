@@ -35,17 +35,17 @@ export const CallActive = ({ onLeave, meetingName }: Props) => {
     }, [isCallReady]);
 
     return (
-        <div className="flex flex-col justify-between p-4 h-screen text-white">
+        <div className="flex flex-col justify-between p-4 h-[100dvh] bg-[#06090e] text-white overflow-hidden">
             {/* Header */}
-            <div className="bg-slate-900 rounded-full p-3 flex items-center gap-4 mb-2">
-                <Link href="/" className="flex items-center justify-center p-1 bg-white/10 hover:bg-white/20 transition-colors rounded-full">
-                    <Image src="/logo.svg" width={22} height={22} alt="logo" className="min-w-[22px]" />
+            <div className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-lg rounded-full px-4 py-3 flex items-center gap-4 mb-2 z-10 shrink-0">
+                <Link href="/" className="flex items-center justify-center p-1.5 bg-white/5 hover:bg-white/10 transition-colors rounded-full">
+                    <Image src="/logo.svg" width={20} height={20} alt="logo" className="min-w-[20px]" />
                 </Link>
-                <h4 className="text-base truncate">{meetingName}</h4>
+                <h4 className="text-sm font-medium tracking-tight truncate">{meetingName}</h4>
             </div>
             
             {/* Main content - video container */}
-            <div className="flex-1 min-h-0 relative overflow-hidden rounded-xl mb-2">
+            <div className="flex-1 min-h-0 relative w-full mb-2 flex flex-col justify-center">
                 {isCallReady && isStabilized ? (
                     <SpeakerLayout />
                 ) : (
@@ -56,7 +56,7 @@ export const CallActive = ({ onLeave, meetingName }: Props) => {
             </div>
             
             {/* Footer controls */}
-            <div className="bg-slate-900 rounded-full px-4 py-2">
+            <div className="bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-[0_0_30px_rgba(16,185,129,0.05)] rounded-full px-6 py-3 shrink-0 z-10 flex items-center justify-center">
                 <CallControls onLeave={onLeave} />
             </div>
         </div>

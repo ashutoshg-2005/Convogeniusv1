@@ -13,7 +13,7 @@ export const ActiveState = ({
 
 }: Props) => {
     return (
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-5 flex flex-col gap-y-8 items-center justify-center">
+        <div className="bg-white/[0.02] backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-5 flex flex-col gap-y-8 items-center justify-center">
             <EmptyState 
                 image="/upcoming.svg"
                 title="Meeting is Active"

@@ -44,8 +44,8 @@ export const columns: ColumnDef<MeetingGetMany[number]>[] = [
           
           <div className="flex items-center gap-x-2">
             <div className="flex items-center gap-x-1">
-                <CornerDownRightIcon className="size-3 text-muted-foreground"/>
-                <span className="text-sm text-muted-foreground max-w-[200px] truncate capitalize:">
+                <CornerDownRightIcon className="size-3 text-slate-400"/>
+                <span className="text-sm text-slate-400 max-w-[200px] truncate capitalize:">
                   {row.original.agent.name}</span>
             </div>
             <GeneratedAvatar
@@ -53,7 +53,7 @@ export const columns: ColumnDef<MeetingGetMany[number]>[] = [
               className="size-4"
               seed={row.original.agent.name}
             />
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-slate-400">
               {row.original.startedAt ? format (row.original.startedAt, "MMM d") : ""}
             </span>
           </div>
@@ -71,7 +71,7 @@ export const columns: ColumnDef<MeetingGetMany[number]>[] = [
           <Badge
               variant="outline"
               className={cn(
-                  "capitalize [&>svg]:size-4 text-muted-foreground",
+                  "capitalize [&>svg]:size-4 text-slate-400",
                   statusCOlorMap[row.original.status as keyof typeof statusCOlorMap]
               )}
           >

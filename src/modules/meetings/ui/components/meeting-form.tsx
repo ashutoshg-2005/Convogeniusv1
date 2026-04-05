@@ -118,12 +118,12 @@ export const MeetingForm = ({
                         control={form.control}
                         render = {({ field }) => (
                             <FormItem>
-                                <FormLabel className="text-gray-900 dark:text-gray-100">Name</FormLabel>
+                                <FormLabel className="text-white">Name</FormLabel>
                                 <FormControl>
                                     <input
                                         {...field}
                                         placeholder="Eg: Math Tutor"
-                                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-3 py-2 border border-white/10 rounded-md bg-white/[0.02] backdrop-blur-xl text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -136,18 +136,18 @@ export const MeetingForm = ({
                         control={form.control}
                         render = {({ field }) => (
                             <FormItem>
-                                <FormLabel className="text-gray-900 dark:text-gray-100">Agent</FormLabel>
+                                <FormLabel className="text-white">Agent</FormLabel>
                                 <FormControl>
                                     <CommandSelect
                                         options = {(agents.data?.items??[]) .map((agent) => ({
                                             id: agent.id,
                                             value: agent.id,
                                             children: (
-                                                <div className="flex items-center gap-x-2 text-gray-900 dark:text-gray-100">
+                                                <div className="flex items-center gap-x-2 text-white">
                                                     <GeneratedAvatar
                                                         seed = {agent.name}
                                                         variant = "botttsNeutral"
-                                                        className="border border-gray-300 dark:border-gray-600 size-6"
+                                                        className="border border-white/10 size-6"
                                                     />
                                                     <span>{agent.name}</span>
                                                 </div>
@@ -159,7 +159,7 @@ export const MeetingForm = ({
                                         placeholder="Select an agent"
                                     />
                                 </FormControl>
-                                <FormDescription className="text-gray-600 dark:text-gray-400">
+                                <FormDescription className="text-slate-400">
                                     Not found what you are looking for?{" "}
                                     <button
                                         type="button"
@@ -182,7 +182,7 @@ export const MeetingForm = ({
                                 type="button"
                                 onClick={() => onCancel()}
                                 disabled={isPending}
-                                className="text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                className="text-white hover:bg-white/[0.06]"
                             >
                                 Cancel
                             </Button>

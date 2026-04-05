@@ -33,17 +33,17 @@ export const MeetingIdViewHeader = ({
             <Breadcrumb >
                 <BreadcrumbList>
                     <BreadcrumbItem>
-                        <BreadcrumbLink asChild className="font-md text-xl text-gray-900 dark:text-gray-100">
+                        <BreadcrumbLink asChild className="font-md text-xl text-white">
                             <Link href="/meetings">
                                 My Meetings
                             </Link>
                         </BreadcrumbLink>
                     </BreadcrumbItem>
-                    <BreadcrumbSeparator className="text-foreground dark:text-gray-300 text-xl font-medium [$>svg]:size-4" >
+                    <BreadcrumbSeparator className="text-slate-500 text-xl font-medium [$>svg]:size-4" >
                         <ChevronsRightIcon />
                     </BreadcrumbSeparator>
                     <BreadcrumbItem>
-                        <BreadcrumbLink asChild className="font-md text-xl text-foreground dark:text-gray-200">
+                        <BreadcrumbLink asChild className="font-md text-xl text-emerald-400 font-semibold drop-shadow-[0_0_6px_rgba(16,185,129,0.3)]">
                             <Link href={`/meetings/${meetingId}`}>
                                 {meetingName}
                             </Link>
@@ -53,17 +53,17 @@ export const MeetingIdViewHeader = ({
             </Breadcrumb>
             <DropdownMenu modal = {false}>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon" className="w-8 h-8 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <Button variant="ghost" size="icon" className="w-8 h-8 text-white hover:bg-white/[0.06] border border-white/[0.05]">
                         <MoreVerticalIcon className="size-4" />
                     </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align = "end" className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-                    <DropdownMenuItem onClick={onEdit} className="text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <PencilIcon className="size-4 text-black dark:text-gray-100" />
+                <DropdownMenuContent align = "end" className="bg-[#06090e]/95 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(16,185,129,0.05)]">
+                    <DropdownMenuItem onClick={onEdit} className="text-white hover:bg-white/[0.06] cursor-pointer">
+                        <PencilIcon className="size-4" />
                             Edit Meeting
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={onRemove} className="text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <TrashIcon className="size-4 text-red-500 dark:text-red-400" />
+                    <DropdownMenuItem onClick={onRemove} className="text-white hover:bg-white/[0.06] cursor-pointer">
+                        <TrashIcon className="size-4 text-red-500" />
                             Delete Meeting
                     </DropdownMenuItem>
                 </DropdownMenuContent>

@@ -126,7 +126,7 @@ export const DashboardView = () => {
               scale: 1.05,
               rotationY: 5,
               z: 20,
-              boxShadow: "0 20px 40px rgba(34, 197, 94, 0.15)",
+              boxShadow: "0 20px 40px rgba(16, 185, 129, 0.15)",
               duration: 0.3,
               ease: "power2.out"
             });
@@ -137,7 +137,7 @@ export const DashboardView = () => {
               scale: 1,
               rotationY: 0,
               z: 0,
-              boxShadow: "0 0 0 rgba(34, 197, 94, 0)",
+              boxShadow: "0 0 0 rgba(16, 185, 129, 0)",
               duration: 0.4,
               ease: "power2.out"
             });
@@ -200,23 +200,23 @@ export const DashboardView = () => {
       {/* Welcome Header */}
       <div ref={headerRef} className="flex items-center justify-between">
         <div className="space-y-1">
-          <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+          <h1 className="text-2xl font-semibold tracking-tight text-white">
             Welcome back, {session.user.name?.split(' ')[0] || 'User'}! 👋
           </h1>
-          <p className="text-muted-foreground dark:text-gray-400">
+          <p className="text-slate-400">
             Here&apos;s what&apos;s happening with your AI meetings today.
           </p>
         </div>
         <div className="hidden sm:flex items-center gap-3">
           <Link href="/agents">
-            <Button variant="outline">
-              <BotIcon className="size-4" />
+            <Button variant="outline" className="rounded-full border-white/[0.08] bg-white/[0.02] text-slate-300 hover:bg-white/[0.06] hover:text-white transition-all shadow-sm">
+              <BotIcon className="size-4 mr-2 opacity-70" />
               New Agent
             </Button>
           </Link>
           <Link href="/meetings">
-            <Button>
-              <VideoIcon className="size-4" />
+            <Button className="rounded-full bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-semibold border-none shadow-[0_4px_14px_rgba(16,185,129,0.25)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)] hover:-translate-y-[1px] transition-all">
+              <VideoIcon className="size-4 mr-2" />
               New Meeting
             </Button>
           </Link>
@@ -225,55 +225,55 @@ export const DashboardView = () => {
 
       {/* Statistics Cards */}
       <div ref={statsRef} className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="stat-card border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="stat-card border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-gray-900 dark:text-gray-100">Total Meetings</CardTitle>
-            <VideoIcon className="h-4 w-4 text-muted-foreground dark:text-gray-400" />
+            <CardTitle className="text-sm font-medium text-white">Total Meetings</CardTitle>
+            <VideoIcon className="h-4 w-4 text-slate-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalMeetings}</div>
-            <p className="text-xs text-muted-foreground dark:text-gray-400">
+            <div className="text-2xl font-bold text-white">{totalMeetings}</div>
+            <p className="text-xs text-slate-400">
               {completedMeetings} completed, {upcomingMeetings} upcoming
             </p>
           </CardContent>
         </Card>
 
-        <Card className="stat-card border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="stat-card border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-gray-900 dark:text-gray-100">AI Agents</CardTitle>
-            <BotIcon className="h-4 w-4 text-muted-foreground dark:text-gray-400" />
+            <CardTitle className="text-sm font-medium text-white">AI Agents</CardTitle>
+            <BotIcon className="h-4 w-4 text-slate-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{totalAgents}</div>
-            <p className="text-xs text-muted-foreground dark:text-gray-400">
+            <div className="text-2xl font-bold text-white">{totalAgents}</div>
+            <p className="text-xs text-slate-400">
               Ready to assist in your meetings
             </p>
           </CardContent>
         </Card>
 
-        <Card className="stat-card border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="stat-card border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-gray-900 dark:text-gray-100">Active Now</CardTitle>
-            <ActivityIcon className="h-4 w-4 text-muted-foreground dark:text-gray-400" />
+            <CardTitle className="text-sm font-medium text-white">Active Now</CardTitle>
+            <ActivityIcon className="h-4 w-4 text-slate-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{activeMeetings}</div>
-            <p className="text-xs text-muted-foreground dark:text-gray-400">
+            <div className="text-2xl font-bold text-white">{activeMeetings}</div>
+            <p className="text-xs text-slate-400">
               Meetings currently in progress
             </p>
           </CardContent>
         </Card>
 
-        <Card className="stat-card border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="stat-card border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-gray-900 dark:text-gray-100">This Month</CardTitle>
-            <TimerIcon className="h-4 w-4 text-muted-foreground dark:text-gray-400" />
+            <CardTitle className="text-sm font-medium text-white">This Month</CardTitle>
+            <TimerIcon className="h-4 w-4 text-slate-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            <div className="text-2xl font-bold text-white">
               {thisMonthMeetings}
             </div>
-            <p className="text-xs text-muted-foreground dark:text-gray-400">
+            <p className="text-xs text-slate-400">
               Completed meetings
             </p>
           </CardContent>
@@ -282,19 +282,19 @@ export const DashboardView = () => {
 
       <div ref={cardsRef} className="grid gap-6 lg:grid-cols-2">
         {/* Recent Meetings */}
-        <Card className="main-card border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="main-card border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle className="text-gray-900 dark:text-gray-100">Recent Meetings</CardTitle>
-                <CardDescription className="text-gray-600 dark:text-gray-400">
+                <CardTitle className="text-white">Recent Meetings</CardTitle>
+                <CardDescription className="text-slate-400">
                   Your latest meeting activity
                 </CardDescription>
               </div>
               <Link href="/meetings">
-                <Button variant="outline" size="sm" className="border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700">
+                <Button variant="outline" size="sm" className="border-white/10 hover:bg-white/[0.04] text-slate-300 hover:text-white transition-colors rounded-full px-4">
                   View All
-                  <ArrowRightIcon className="size-4 ml-2" />
+                  <ArrowRightIcon className="size-3.5 ml-2 opacity-70" />
                 </Button>
               </Link>
             </div>
@@ -316,18 +316,18 @@ export const DashboardView = () => {
                       <div className="min-w-0 flex-1">
                         <Link 
                           href={`/meetings/${meeting.id}`}
-                          className="text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                          className="text-sm font-medium text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                         >
                           {meeting.name}
                         </Link>
                         <div className="flex items-center space-x-2 mt-1">
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                          <p className="text-xs text-slate-500">
                             {meeting.agent?.name && (
                               <span>with {meeting.agent.name}</span>
                             )}
                           </p>
                           {meeting.createdAt && (
-                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                            <p className="text-xs text-slate-500">
                               • {format(new Date(meeting.createdAt), "MMM d")}
                             </p>
                           )}
@@ -349,11 +349,11 @@ export const DashboardView = () => {
             ) : (
               <div className="text-center py-6">
                 <VideoIcon className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" />
-                <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">No meetings yet</h3>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Get started by creating your first meeting.</p>
+                <h3 className="mt-2 text-sm font-medium text-white">No meetings yet</h3>
+                <p className="mt-1 text-sm text-slate-500">Get started by creating your first meeting.</p>
                 <div className="mt-4">
                   <Link href="/meetings">
-                    <Button size="sm">
+                    <Button size="sm" className="rounded-full bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-medium shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] transition-all">
                       <PlusIcon className="size-4 mr-2" />
                       Create Meeting
                     </Button>
@@ -365,19 +365,19 @@ export const DashboardView = () => {
         </Card>
 
         {/* AI Agents */}
-        <Card className="main-card border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="main-card border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle className="text-gray-900 dark:text-gray-100">AI Agents</CardTitle>
-                <CardDescription className="text-gray-600 dark:text-gray-400">
+                <CardTitle className="text-white">AI Agents</CardTitle>
+                <CardDescription className="text-slate-400">
                   Your intelligent meeting assistants
                 </CardDescription>
               </div>
               <Link href="/agents">
-                <Button variant="outline" size="sm" className="border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700">
+                <Button variant="outline" size="sm" className="border-white/10 hover:bg-white/[0.04] text-slate-300 hover:text-white transition-colors rounded-full px-4">
                   View All
-                  <ArrowRightIcon className="size-4 ml-2" />
+                  <ArrowRightIcon className="size-3.5 ml-2 opacity-70" />
                 </Button>
               </Link>
             </div>
@@ -397,11 +397,11 @@ export const DashboardView = () => {
                     <div className="min-w-0 flex-1">
                       <Link 
                         href={`/agents/${agent.id}`}
-                        className="text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="text-sm font-medium text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       >
                         {agent.name}
                       </Link>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 truncate max-w-[200px]">
+                      <p className="text-xs text-slate-500 truncate max-w-[200px]">
                         {agent.instructions}
                       </p>
                     </div>
@@ -417,11 +417,11 @@ export const DashboardView = () => {
             ) : (
               <div className="text-center py-6">
                 <BotIcon className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" />
-                <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">No agents yet</h3>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Create an AI agent to assist in your meetings.</p>
+                <h3 className="mt-2 text-sm font-medium text-white">No agents yet</h3>
+                <p className="mt-1 text-sm text-slate-500">Create an AI agent to assist in your meetings.</p>
                 <div className="mt-4">
                   <Link href="/agents">
-                    <Button size="sm">
+                    <Button size="sm" className="rounded-full bg-emerald-500 hover:bg-emerald-400 text-emerald-950 font-medium shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] transition-all">
                       <PlusIcon className="size-4 mr-2" />
                       Create Agent
                     </Button>
@@ -435,18 +435,18 @@ export const DashboardView = () => {
 
       {/* Quick Actions */}
       <div className="grid gap-4 md:grid-cols-2">
-        <Card className="hover:shadow-md transition-shadow cursor-pointer group border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="hover:shadow-md transition-shadow cursor-pointer group border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <Link href="/meetings">
             <CardHeader className="pb-3">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-blue-500/10 dark:bg-blue-500/20 rounded-lg group-hover:bg-blue-500/20 dark:group-hover:bg-blue-500/30 transition-colors">
+                <div className="p-2 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
                   <VideoIcon className="size-5 text-blue-600 dark:text-blue-400" />
                 </div>
-                <CardTitle className="text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-gray-900 dark:text-gray-100">Quick Meeting</CardTitle>
+                <CardTitle className="text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-white">Quick Meeting</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-gray-600 dark:text-gray-400">
+              <CardDescription className="text-slate-400">
                 Start an instant meeting with your AI agents
               </CardDescription>
               <div className="mt-3 flex items-center justify-between">
@@ -459,18 +459,18 @@ export const DashboardView = () => {
           </Link>
         </Card>
 
-        <Card className="hover:shadow-md transition-shadow cursor-pointer group border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="hover:shadow-md transition-shadow cursor-pointer group border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <Link href="/agents">
             <CardHeader className="pb-3">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-purple-500/10 dark:bg-purple-500/20 rounded-lg group-hover:bg-purple-500/20 dark:group-hover:bg-purple-500/30 transition-colors">
+                <div className="p-2 bg-purple-500/10 rounded-lg group-hover:bg-purple-500/20 transition-colors">
                   <BotIcon className="size-5 text-purple-600 dark:text-purple-400" />
                 </div>
-                <CardTitle className="text-lg group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors text-gray-900 dark:text-gray-100">New Agent</CardTitle>
+                <CardTitle className="text-lg group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors text-white">New Agent</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-gray-600 dark:text-gray-400">
+              <CardDescription className="text-slate-400">
                 Create a specialized AI assistant for your needs
               </CardDescription>
               <div className="mt-3 flex items-center justify-between">
@@ -486,20 +486,20 @@ export const DashboardView = () => {
 
       {/* Mobile Quick Actions */}
       <div className="sm:hidden">
-        <Card className="border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+        <Card className="border-white/[0.05] bg-white/[0.02] backdrop-blur-xl shadow-lg">
           <CardHeader>
-            <CardTitle className="text-gray-900 dark:text-gray-100">Quick Actions</CardTitle>
+            <CardTitle className="text-white">Quick Actions</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <Link href="/meetings" className="block">
-              <Button variant="outline" className="w-full justify-start border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700">
-                <VideoIcon className="size-4" />
+              <Button variant="outline" className="w-full justify-start rounded-full border-white/[0.08] bg-white/[0.02] text-slate-300 hover:bg-white/[0.06] hover:text-white transition-all shadow-sm">
+                <VideoIcon className="size-4 mr-2 opacity-70" />
                 New Meeting
               </Button>
             </Link>
-            <Link href="/agents" className="block">
-              <Button variant="outline" className="w-full justify-start border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700">
-                <BotIcon className="size-4" />
+            <Link href="/agents" className="block mt-3">
+              <Button variant="outline" className="w-full justify-start rounded-full border-white/[0.08] bg-white/[0.02] text-slate-300 hover:bg-white/[0.06] hover:text-white transition-all shadow-sm">
+                <BotIcon className="size-4 mr-2 opacity-70" />
                 Create Agent
               </Button>
             </Link>

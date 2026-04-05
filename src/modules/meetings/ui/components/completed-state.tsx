@@ -19,33 +19,33 @@ export const CompletedState = ({ data }: Props) => {
     return (
         <div className="flex flex-col gap-y-4">
             <Tabs defaultValue="summary">
-                <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 px-3">
+                <div className="bg-white/[0.02] backdrop-blur-xl rounded-lg border border-gray-200 dark:border-gray-700 px-3">
                     <ScrollArea>
                         <TabsList className="p-0 bg-transparent dark:bg-transparent justify-start rounded-none h-13">
                             <TabsTrigger
                              value="summary"
-                             className="text-gray-600 dark:text-gray-400 rounded-none bg-transparent data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-blue-600 data-[state=active]:text-gray-900 dark:data-[state=active]:text-gray-100 h-full hover:text-gray-900 dark:hover:text-gray-100"
+                             className="text-slate-400 rounded-none bg-transparent data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-blue-600 data-[state=active]:text-gray-900 dark:data-[state=active]:text-gray-100 h-full hover:text-white"
                             >
                                 <BookOpenTextIcon />
                                 Summary
                             </TabsTrigger>
                             <TabsTrigger
                              value="transcript"
-                             className="text-gray-600 dark:text-gray-400 rounded-none bg-transparent data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-blue-600 data-[state=active]:text-gray-900 dark:data-[state=active]:text-gray-100 h-full hover:text-gray-900 dark:hover:text-gray-100"
+                             className="text-slate-400 rounded-none bg-transparent data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-blue-600 data-[state=active]:text-gray-900 dark:data-[state=active]:text-gray-100 h-full hover:text-white"
                             >
                                 <FileTextIcon />
                                 Transcript
                             </TabsTrigger>
                             <TabsTrigger
                              value="recording"
-                             className="text-gray-600 dark:text-gray-400 rounded-none bg-transparent data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-blue-600 data-[state=active]:text-gray-900 dark:data-[state=active]:text-gray-100 h-full hover:text-gray-900 dark:hover:text-gray-100"
+                             className="text-slate-400 rounded-none bg-transparent data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-blue-600 data-[state=active]:text-gray-900 dark:data-[state=active]:text-gray-100 h-full hover:text-white"
                             >
                                 <FileTextIcon />
                                 Recording
                             </TabsTrigger>
                             <TabsTrigger
                              value="chat"
-                             className="text-gray-600 dark:text-gray-400 rounded-none bg-transparent data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-blue-600 data-[state=active]:text-gray-900 dark:data-[state=active]:text-gray-100 h-full hover:text-gray-900 dark:hover:text-gray-100"
+                             className="text-slate-400 rounded-none bg-transparent data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-blue-600 data-[state=active]:text-gray-900 dark:data-[state=active]:text-gray-100 h-full hover:text-white"
                             >
                                 <SparklesIcon />
                                 Ask AI
@@ -69,9 +69,9 @@ export const CompletedState = ({ data }: Props) => {
                     </div>
                 </TabsContent>
                 <TabsContent value="summary">
-                    <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div className="bg-white/[0.02] backdrop-blur-xl rounded-lg border border-gray-200 dark:border-gray-700">
                         <div className="px-4 py-5 gap-y-4 flex flex-col col-span-5">
-                            <h2 className="text-2xl font-medium capitalize text-gray-900 dark:text-gray-100">{data.name}</h2>
+                            <h2 className="text-2xl font-medium capitalize text-white">{data.name}</h2>
                             <div className="flex gap-x-2 items-center">
                                 <Link 
                                     href={`/agents/${data.agent.id}`}
@@ -84,14 +84,14 @@ export const CompletedState = ({ data }: Props) => {
                                     />
                                     {data.agent.name}
                                 </Link>{" "}
-                                <p className="text-gray-600 dark:text-gray-400">{data.startedAt ? format(data.startedAt, "PPP"): ""}</p>
+                                <p className="text-slate-400">{data.startedAt ? format(data.startedAt, "PPP"): ""}</p>
                             </div>
                             <div className="flex gap-x-2 items-center">
-                                <SparklesIcon className="size-4 text-gray-600 dark:text-gray-400"/>
-                                <p className="text-gray-900 dark:text-gray-100">General Summary</p>
+                                <SparklesIcon className="size-4 text-slate-400"/>
+                                <p className="text-white">General Summary</p>
                             </div>
                             <Badge
-                                className="flex items-center gap-x-2 [&>svg]:size-4 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
+                                className="flex items-center gap-x-2 [&>svg]:size-4 border-white/10 text-white"
                                 variant="outline"
                             >
                                 <ClockFadingIcon className="text-blue-700 dark:text-blue-400"/>
